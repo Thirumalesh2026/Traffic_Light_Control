@@ -30,7 +30,7 @@ public class IntersectionService {
 		if (paused) {
 			throw new InvalidTrafficstateException("System is paused");
 		}
-		// validateCoflicts(direction);
+		validateConflicts(direction);
 		lights.values().forEach(l -> l.changeTo(LightColor.RED));
 		lights.get(direction).changeTo(LightColor.GREEN);
 		history.add(direction + "set to GREEN");
